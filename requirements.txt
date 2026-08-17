@@ -1,0 +1,10 @@
+requests
+pandas
+numpy
+openpyxl
+ipykernel
+jupyter
+matplotlib
+seaborn
+statsmodels
+pingouin
