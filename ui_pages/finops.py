@@ -856,7 +856,7 @@ def render_finops_page(df_orders: pd.DataFrame, df_accounts: pd.DataFrame):
 
 def app():
     """Función de entrada para llamadas dinámicas desde app.py"""
-    df_orders = st.session_state.get('ords_clean')
+    df_orders = st.session_state.get('ords_clean').query("~qty_ordered.isna()")
     df_accounts = st.session_state.get('accs_clean')
 
     render_finops_page(df_orders, df_accounts)

@@ -49,6 +49,14 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
         regions = df[['customer_id', 'region']].dropna().drop_duplicates()
         df = pd.merge(df, regions, on='customer_id', suffixes=('', '_y'))
         df['region'] = df['region'].fillna(df.pop('region_y'))
+        
+    else:
+        df.loc[
+           df.query(
+                "qty_ordered == qty_delivered & qty_delivered > 0 & qty_ordered.notna()"
+            ).index,
+            "status",
+        ] = "DELIVERED"
 
     return df
 
