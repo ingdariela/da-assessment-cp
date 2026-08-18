@@ -2,6 +2,7 @@ import unicodedata
 import pandas as pd
 import src.config as cg
 from src.database import DataLoader
+import streamlit as st
 
 def load_data():
     loader = DataLoader()
@@ -83,6 +84,8 @@ def get_orders_with_conflict_details(ords_clean: pd.DataFrame, id_col: str = "or
     unique_counts = df.groupby(id_col)[numeric_cols].transform("nunique")
     conflicting_df = df[(unique_counts > 1).any(axis=1)].copy()
 
+    conflicting_df['aux'] = conflicting_df[id_col]
+
     if conflicting_df.empty:
         return pd.DataFrame()
 
@@ -100,5 +103,7 @@ def get_orders_with_conflict_details(ords_clean: pd.DataFrame, id_col: str = "or
         return group
 
     conflicting_df = conflicting_df.groupby(id_col, group_keys=False).apply(process_group_conflicts)
+    conflicting_df = conflicting_df.rename(columns={'aux':id_col})
+
     cols = [id_col, "diff_billed_rate", "diff_qty_ordered", "diff_qty_delivered", "billed_rate", "qty_ordered", "qty_delivered"]
     return conflicting_df[[c for c in cols if c in conflicting_df.columns]]

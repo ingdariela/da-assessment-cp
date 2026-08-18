@@ -86,7 +86,6 @@ def render_dataset_audit_section_metrics(titles: list, raw_dfs: list, clean_dfs:
                 
                 df = data_service.get_orders_with_conflict_details(raw_df.query("migration_flag == 'POST'"), 'order_id')
                                 
-                
                 target_cols = ["diff_billed_rate", "diff_qty_ordered", "diff_qty_delivered"]
                 available_cols = [col for col in target_cols if col in df.columns]
 
