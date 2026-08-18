@@ -65,8 +65,13 @@ def render_dataset_audit_section_metrics(titles: list, raw_dfs: list, clean_dfs:
                 
                 df = data_service.get_orders_with_conflict_details(raw_df.query("migration_flag == 'PRE'"), 'order_id')
                 
-                st.dataframe(df, height=250, use_container_width=True, hide_index=True)
-                st.write(df[["diff_billed_rate", "diff_qty_ordered", "diff_qty_delivered"]].describe())
+                
+                target_cols = ["diff_billed_rate", "diff_qty_ordered", "diff_qty_delivered"]
+                available_cols = [col for col in target_cols if col in df.columns]
+
+                if available_cols:
+                    st.dataframe(df, height=250, use_container_width=True, hide_index=True)
+                    st.write(df[available_cols].describe())
 
             with col_post:
                 st.markdown("**Post-Migration Orders**")
@@ -81,8 +86,13 @@ def render_dataset_audit_section_metrics(titles: list, raw_dfs: list, clean_dfs:
                 
                 df = data_service.get_orders_with_conflict_details(raw_df.query("migration_flag == 'POST'"), 'order_id')
                                 
-                st.dataframe(df, height=250, use_container_width=True, hide_index=True)
-                st.write(df[["diff_billed_rate", "diff_qty_ordered", "diff_qty_delivered"]].describe())
+                
+                target_cols = ["diff_billed_rate", "diff_qty_ordered", "diff_qty_delivered"]
+                available_cols = [col for col in target_cols if col in df.columns]
+
+                if available_cols:
+                    st.dataframe(df, height=250, use_container_width=True, hide_index=True)
+                    st.write(df[available_cols].describe())
 
         else:
             # Standard metrics layout (e.g., Accounts)
