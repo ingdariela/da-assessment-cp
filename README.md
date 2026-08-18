@@ -1,7 +1,7 @@
 ```markdown
 # 📊 Data Analysis - ATP (Dashboard & FinOps Assessment)
 
-A comprehensive, production-grade **Streamlit** dashboard designed for **Data Quality Audits** and **Financial-Operational (FinOps) Impact Assessment** of customer accounts and utility/energy orders[cite: 1, 2, 3]. It bridges data engineering and executive financial oversight by tracking data hygiene, migration shifts, revenue discrepancies, and operational metrics.
+A comprehensive, production-grade **Streamlit** dashboard designed for **Data Quality Audits** and **Financial-Operational (FinOps) Impact Assessment** of customer accounts and utility/energy orders[cite: 1, 2, 3]. It bridges data engineering and executive financial oversight by tracking data hygiene, migration shifts, revenue discrepancies, and operational metrics. You can access the live application directly at [https://da-assessment-cp-h9h6elcme9bv2ztw9qszu8.streamlit.app/](https://da-assessment-cp-h9h6elcme9bv2ztw9qszu8.streamlit.app/).
 
 ---
 
@@ -166,7 +166,7 @@ python src/data_loader.py
 
 ### 4. Run the Streamlit Dashboard
 
-Launch the application locally:
+Launch the application locally or explore the hosted version at [https://da-assessment-cp-h9h6elcme9bv2ztw9qszu8.streamlit.app/](https://www.google.com/url?sa=E&source=gmail&q=https://da-assessment-cp-h9h6elcme9bv2ztw9qszu8.streamlit.app/):
 
 ```bash
 streamlit run app.py
