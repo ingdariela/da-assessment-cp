@@ -19,7 +19,6 @@ st.set_page_config(
 # Forzar la visibilidad constante de la sidebar por CSS
 st.markdown("""
     <style>
-    /* Forzar que el Sidebar permanezca visible y sin botón de colapsar */
     [data-testid="stSidebar"] {
         display: block !important;
         margin-left: 0px !important;
@@ -33,13 +32,8 @@ st.markdown("""
         display: none !important;
     }
 
-    /* Control del tamaño y centrado del contenido principal */
     .stMainBlockContainer {
-        max-width: 1400px !important; /* Límite de ancho ideal para dashboards */
-        width: 95% !important;        /* Se adapta dinámicamente si la pantalla es más pequeña */
         margin-left: auto !important;
-        margin-right: auto !important;
-        padding-top: 2rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
