@@ -1,0 +1,134 @@
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+
+/* ======================= */
+/*  AUMENTAR EL TAMAÑO DEL TEXTO EN TODA LA APP */
+/* ======================= */
+html, body, [class*="st-"] {
+    font-size: 25px !important;
+    font-family: Arial, sans-serif !important;  
+}
+html, body {
+    background-color: white !important;
+}
+
+
+/* Agrandar encabezados */
+h1 { font-size: 55px !important; }
+h2 { font-size: 45px !important; }
+h3 { font-size: 35px !important; }
+h4, h5, h6 { font-size: 30px !important; }
+/* ======================= */
+/* Cambiar color del MultiSelect */
+/* ======================= */
+div[data-baseweb="tag"] {
+    background-color: #333333 !important;  /* Gris oscuro */
+    color: white !important;  /* Texto blanco */
+    border-radius: 5px !important;
+    padding: 5px 10px !important;
+    font-size: 18px !important;
+}
+
+/* Cambiar color del botón "x" para eliminar selección en MultiSelect */
+div[data-baseweb="tag"] svg {
+    fill: white !important;  /* Hace la 'x' blanca */
+}
+
+/* ======================= */
+/* Estilo para Option Menu */
+/* ======================= */
+div[data-testid="stHorizontalBlock"] button {
+    font-size: 22px !important;
+    padding: 10px 20px !important;
+    color: black !important;
+}
+
+/* Cuando una pestaña está seleccionada en option_menu */
+div[data-testid="stHorizontalBlock"] button[aria-selected="true"] {
+    background-color: #333333 !important;  /* Gris oscuro */
+    color: white !important;  /* Texto blanco */
+    font-weight: bold !important;
+}
+
+/* ======================= */
+/*  Ajustes Generales */
+/* ======================= */
+html, body, [class*="st-"] {
+    font-size: 25px !important;
+}
+
+/* Agrandar encabezados */
+h1 { font-size: 55px !important; }
+h2 { font-size: 45px !important; }
+h3 { font-size: 35px !important; }
+h4, h5, h6 { font-size: 30px !important; }
+
+/* Agrandar botones */
+.stButton>button {
+    font-size: 20px !important;
+    padding: 10px 20px !important;
+}
+
+/* Agrandar selectboxes, radios, multiselect, textinput, dateinput */
+.stRadio, .stSelectbox, .stMultiSelect, .stTextInput, .stDateInput {
+    font-size: 20px !important;
+}
+
+/* ======================= */
+/*  Estilos para Sidebar */
+/* ======================= */
+section[data-testid="stSidebar"] {
+    background-color: #F5F5F5 !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+}
+
+/* Cambia el color de los botones primarios */
+button[kind="primary"] {
+    background-color: #FF5733 !important; /* Naranja */
+    color: white !important;
+    font-size: 16px !important;
+    border-radius: 5px !important;
+}
+
+/* Ajustar el tamaño de la sidebar */
+section[data-testid="stSidebar"] {
+    width: 550px !important;  /* Ajusta el ancho según tu preferencia */
+    min-width: 300px !important;
+    max-width: 500px !important; /* Opcional, para evitar que sea demasiado grande */
+}
+
+/* ======================= */
+/* OCULTAR COMPLETAMENTE LA SIDEBAR */
+/* ======================= */
+.sidebar-hidden section[data-testid="stSidebar"] {
+    display: none !important;
+}
+
+/* Ajustar el contenido cuando la sidebar está oculta */
+.sidebar-hidden div[class="main"] {
+    transition: margin-left 0.5s ease-in-out;
+    margin-left: 0px !important;
+}
+
+/* Mostrar la sidebar y ajustar el contenido */
+.sidebar-visible section[data-testid="stSidebar"] {
+    display: block !important;
+}
+
+.sidebar-visible div[class="main"] {
+    transition: margin-left 0.5s ease-in-out;
+    margin-left: 300px !important; /* Ajusta este valor según el ancho de tu sidebar */
+}
+
+/* Sidebar blanca */
+section[data-testid="stSidebar"] {
+    background-color: #F5F5F5 !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+    color: black !important;
+}
+
+

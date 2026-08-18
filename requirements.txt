@@ -7,4 +7,11 @@ jupyter
 matplotlib
 seaborn
 statsmodels
-pingouin
+streamlit
+sqlalchemy
+dotenv
+streamlit_option_menu
+plotly
+pyarrow 
+pymysql 
+python-dotenv
