@@ -9,18 +9,33 @@ import ui_pages.finops as finops
 
 warnings.filterwarnings("ignore")
 
-st.set_page_config(layout="wide")
-
-# CSS Injection
-st.markdown(
-    """
-    <style>
-        .css-164nlkn { padding-top: 0px !important; padding-bottom: 0px !important; margin-bottom: -20px !important; }
-        .css-18e3th9 { padding-top: 0px !important; }
-    </style>
-    """,
-    unsafe_allow_html=True
+st.set_page_config(
+    page_title="Tu App",
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
+
+# Forzar la visibilidad constante de la sidebar por CSS
+st.markdown("""
+    <style>
+    [data-testid="stSidebar"] {
+        display: block !important;
+        margin-left: 0px !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    [data-testid="stSidebarCollapseButton"],
+    [data-testid="stSidebarExpandButton"],
+    [data-testid="stSidebarHeader"] {
+        display: none !important;
+    }
+
+    .stMainBlockContainer {
+        margin-left: auto !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 try:
     with open('./styles/style_main.css', 'r') as f:
@@ -65,7 +80,7 @@ ords_clean = data_service.merge_cx_data(accs_clean, ords_clean)
 
 # Sidebar Filters
 with st.sidebar:
-    cx = st.selectbox("**Select Customer**", cxs)
+    cx = st.selectbox("**Select Customer**", cxs, index=1)
     energy_type = st.selectbox("**Select Energy Type**", ['ALL'] + list(ords_clean['energy_type'].unique()))
     sel_region = st.selectbox("**Select Region**", ['ALL'] + list(ords_clean['region'].unique()))
 
